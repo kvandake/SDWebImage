@@ -254,7 +254,7 @@ namespace SDWebImage
         // +(instancetype _Nonnull)sharedImageCache;
         [Static]
         [Export("sharedImageCache")]
-        SDImageCache SharedImageCache();
+        SDImageCache SharedImageCache { get; }
 
         // -(instancetype _Nonnull)initWithNamespace:(NSString * _Nonnull)ns;
         [Export("initWithNamespace:")]
@@ -292,35 +292,35 @@ namespace SDWebImage
 
         // -(void)diskImageExistsWithKey:(NSString * _Nullable)key completion:(SDWebImageCheckCacheCompletionBlock _Nullable)completionBlock;
         [Export("diskImageExistsWithKey:completion:")]
-        void DiskImageExistsWithKey([NullAllowed] string key, [NullAllowed] SDWebImageCheckCacheCompletionBlock completionBlock);
+        void DiskImageExists([NullAllowed] string key, [NullAllowed] SDWebImageCheckCacheCompletionBlock completionBlock);
 
         // -(NSOperation * _Nullable)queryCacheOperationForKey:(NSString * _Nullable)key done:(SDCacheQueryCompletedBlock _Nullable)doneBlock;
         [Export("queryCacheOperationForKey:done:")]
         [return: NullAllowed]
-        NSOperation QueryCacheOperationForKey([NullAllowed] string key, [NullAllowed] SDCacheQueryCompletedBlock doneBlock);
+        NSOperation QueryCacheOperation([NullAllowed] string key, [NullAllowed] SDCacheQueryCompletedBlock doneBlock);
 
         // -(UIImage * _Nullable)imageFromMemoryCacheForKey:(NSString * _Nullable)key;
         [Export("imageFromMemoryCacheForKey:")]
         [return: NullAllowed]
-        UIImage ImageFromMemoryCacheForKey([NullAllowed] string key);
+        UIImage ImageFromMemoryCache([NullAllowed] string key);
 
         // -(UIImage * _Nullable)imageFromDiskCacheForKey:(NSString * _Nullable)key;
         [Export("imageFromDiskCacheForKey:")]
         [return: NullAllowed]
-        UIImage ImageFromDiskCacheForKey([NullAllowed] string key);
+        UIImage ImageFromDiskCache([NullAllowed] string key);
 
         // -(UIImage * _Nullable)imageFromCacheForKey:(NSString * _Nullable)key;
         [Export("imageFromCacheForKey:")]
         [return: NullAllowed]
-        UIImage ImageFromCacheForKey([NullAllowed] string key);
+        UIImage ImageFromCache([NullAllowed] string key);
 
         // -(void)removeImageForKey:(NSString * _Nullable)key withCompletion:(SDWebImageNoParamsBlock _Nullable)completion;
         [Export("removeImageForKey:withCompletion:")]
-        void RemoveImageForKey([NullAllowed] string key, [NullAllowed] SDWebImageNoParamsBlock completion);
+        void RemoveImage([NullAllowed] string key, [NullAllowed] SDWebImageNoParamsBlock completion);
 
         // -(void)removeImageForKey:(NSString * _Nullable)key fromDisk:(BOOL)fromDisk withCompletion:(SDWebImageNoParamsBlock _Nullable)completion;
         [Export("removeImageForKey:fromDisk:withCompletion:")]
-        void RemoveImageForKey([NullAllowed] string key, bool fromDisk, [NullAllowed] SDWebImageNoParamsBlock completion);
+        void RemoveImage([NullAllowed] string key, bool fromDisk, [NullAllowed] SDWebImageNoParamsBlock completion);
 
         // -(void)clearMemory;
         [Export("clearMemory")]
