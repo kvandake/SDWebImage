@@ -3,8 +3,8 @@
 Asynchronous image downloader with cache support
 
 This is Obj-C Binding Project based on 
-* https://github.com/rs/SDWebImage 
-* https://github.com/Flipboard/FLAnimatedImage.
+* [SDWebImage-4.0.0](https://github.com/rs/SDWebImage)
+* [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)
 
 ### Usage 
 
