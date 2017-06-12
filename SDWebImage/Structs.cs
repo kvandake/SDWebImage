@@ -4,7 +4,7 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
-namespace AsyncSDWebImage
+namespace SDWebImage
 {
 	public enum FLLogLevel : uint
 	{

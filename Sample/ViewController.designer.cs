@@ -6,21 +6,26 @@
 //
 using Foundation;
 using System.CodeDom.Compiler;
+using SDWebImage;
 
 namespace Sample
 {
-	[Register ("ViewController")]
-	partial class ViewController
-	{
-		[Outlet]
-		UIKit.UIImageView ImgCustomImage { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (ImgCustomImage != null) {
-				ImgCustomImage.Dispose ();
-				ImgCustomImage = null;
-			}
-		}
-	}
+    [Register("ViewController")]
+    partial class ViewController
+    {
+        [Outlet]
+        UIKit.UIImageView ImgCustomImage { get; set; }
+
+        [Outlet]
+        FLAnimatedImageView FLAnimatedImageView { get; set; }
+
+        void ReleaseDesignerOutlets()
+        {
+            if (ImgCustomImage != null)
+            {
+                ImgCustomImage.Dispose();
+                ImgCustomImage = null;
+            }
+        }
+    }
 }
