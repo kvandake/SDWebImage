@@ -13,7 +13,7 @@ This is Obj-C Binding Project based on
 ### Usage 
 
 #### SDWebImage
-For more info please see https://components.xamarin.com/view/sdwebimage)
+For more info please see https://components.xamarin.com/view/sdwebimage
 ```csharp
 ImageView.SetImage(NSUrl.FromString("https://cloud.githubusercontent.com/assets/1567433/10417835/1c97e436-7052-11e5-8fb5-69373072a5a0.gif"),
                                            UIImage.FromBundle("placeholder"),
