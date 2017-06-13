@@ -6,6 +6,10 @@ This is Obj-C Binding Project based on
 * [SDWebImage-4.0.0](https://github.com/rs/SDWebImage)
 * [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)
 
+### Installation
+
+[![NuGet](https://img.shields.io/badge/SDWebImage.FLAnimatedImage-4.0.0.1-green.svg)](https://www.nuget.org/packages/SDWebImage.FLAnimatedImage)
+
 ### Usage 
 
 #### SDWebImage
