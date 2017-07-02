@@ -29,6 +29,10 @@
                                     <constraint firstAttribute="height" constant="128" id="HUR-d0-LWF"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2w-dT-Enq">
+                                <rect key="frame" x="164" y="332" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="pkA-h2-B2k" customClass="FLAnimatedImageView">
                                 <rect key="frame" x="124" y="188" width="128" height="128"/>
                                 <constraints>
@@ -41,11 +45,14 @@
                         <constraints>
                             <constraint firstItem="grU-Y1-AOt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NnP-nh-Fib"/>
                             <constraint firstItem="pkA-h2-B2k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zyd-8Q-vLM"/>
+                            <constraint firstItem="p2w-dT-Enq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lSo-mD-eZx"/>
                             <constraint firstItem="grU-Y1-AOt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="mrb-l1-MbY"/>
                             <constraint firstItem="pkA-h2-B2k" firstAttribute="top" secondItem="grU-Y1-AOt" secondAttribute="bottom" constant="16" id="yND-bd-mDC"/>
+                            <constraint firstItem="p2w-dT-Enq" firstAttribute="top" secondItem="pkA-h2-B2k" secondAttribute="bottom" constant="16" id="z0n-Cl-rft"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Button" destination="p2w-dT-Enq" id="0bc-f7-jrc"/>
                         <outlet property="FLAnimatedImageView" destination="pkA-h2-B2k" id="juo-41-boH"/>
                         <outlet property="ImgCustomImage" destination="grU-Y1-AOt" id="T25-YU-3gm"/>
                     </connections>

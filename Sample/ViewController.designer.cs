@@ -7,6 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 using SDWebImage;
+using UIKit;
 
 namespace Sample
 {
@@ -18,6 +19,9 @@ namespace Sample
 
         [Outlet]
         FLAnimatedImageView FLAnimatedImageView { get; set; }
+
+        [Outlet]
+        UIButton Button { get; set; }
 
         void ReleaseDesignerOutlets()
         {
