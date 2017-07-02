@@ -12,7 +12,7 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>SDWebImage.FLAnimatedImage</PackageId>
-    <PackageVersion>4.0.0.1</PackageVersion>
+    <PackageVersion>4.0.0.2</PackageVersion>
     <Authors>kvandake</Authors>
     <Owners>kvandake</Owners>
     <PackageProjectUrl>https://github.com/kvandake/SDWebImage</PackageProjectUrl>

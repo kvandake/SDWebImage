@@ -7,4 +7,10 @@
 
 using ObjCRuntime;
 
-[assembly: LinkWith ("libSDWebImageUnified.a", SmartLink = true, ForceLoad = true)]
+[assembly: LinkWith("libSDWebImageUnified.a",
+                    LinkTarget.ArmV7 | LinkTarget.ArmV7s | LinkTarget.Simulator,
+                    SmartLink = true,
+                    ForceLoad = false,
+                    LinkerFlags = "-ObjC -fobjc-arc",
+                    Frameworks = "CoreGraphics ImageIO",
+                    WeakFrameworks = "MapKit")]

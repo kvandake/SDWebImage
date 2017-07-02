@@ -112,6 +112,8 @@ namespace SDWebImage
     // typedef void (^SDWebImageNoParamsBlock)();
     delegate void SDWebImageNoParamsBlock();
 
+    interface ISDWebImageOperation { }
+
     // @protocol SDWebImageOperation <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -418,7 +420,7 @@ namespace SDWebImage
         // -(id<SDWebImageOperation> _Nullable)loadImageWithURL:(NSURL * _Nullable)url options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock _Nullable)progressBlock completed:(SDInternalCompletionBlock _Nullable)completedBlock;
         [Export("loadImageWithURL:options:progress:completed:")]
         [return: NullAllowed]
-        SDWebImageOperation LoadImageWithURL([NullAllowed] NSUrl url, SDWebImageOptions options, [NullAllowed] SDWebImageDownloaderProgressBlock progressBlock, [NullAllowed] SDInternalCompletionBlock completedBlock);
+        ISDWebImageOperation LoadImageWithURL([NullAllowed] NSUrl url, SDWebImageOptions options, [NullAllowed] SDWebImageDownloaderProgressBlock progressBlock, [NullAllowed] SDInternalCompletionBlock completedBlock);
 
         // -(void)saveImageToCache:(UIImage * _Nullable)image forURL:(NSURL * _Nullable)url;
         [Export("saveImageToCache:forURL:")]
@@ -623,7 +625,7 @@ namespace SDWebImage
 
     // @interface SDWebImageDownloaderOperation : NSOperation <SDWebImageDownloaderOperationInterface, SDWebImageOperation, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
     [BaseType(typeof(NSOperation))]
-    interface SDWebImageDownloaderOperation : SDWebImageDownloaderOperationInterface, SDWebImageOperation, INSUrlSessionTaskDelegate, INSUrlSessionDataDelegate
+    interface SDWebImageDownloaderOperation : SDWebImageDownloaderOperationInterface, ISDWebImageOperation, INSUrlSessionTaskDelegate, INSUrlSessionDataDelegate
     {
         // @property (readonly, nonatomic, strong) NSURLRequest * _Nullable request;
         [NullAllowed, Export("request", ArgumentSemantic.Strong)]
@@ -749,23 +751,19 @@ namespace SDWebImage
     interface UIButton_WebCache
     {
         // -(NSURL * _Nullable)sd_currentImageURL;
-        [Static]
         [NullAllowed, Export("sd_currentImageURL")]
-        NSUrl CurrentImageURL { get; }
+        NSUrl GetImage();
 
         // -(NSURL * _Nullable)sd_imageURLForState:(UIControlState)state;
-        [Static]
         [Export("sd_imageURLForState:")]
         [return: NullAllowed]
-        NSUrl ImageURLForState(UIControlState state);
+        NSUrl GetImage(UIControlState state);
 
         // -(void)sd_setImageWithURL:(NSURL * _Nullable)url forState:(UIControlState)state;
-        [Static]
         [Export("sd_setImageWithURL:forState:")]
         void SetImage([NullAllowed] NSUrl url, UIControlState state);
 
         // -(void)sd_setImageWithURL:(NSURL * _Nullable)url forState:(UIControlState)state placeholderImage:(UIImage * _Nullable)placeholder;
-        [Static]
         [Export("sd_setImageWithURL:forState:placeholderImage:")]
         void SetImage([NullAllowed] NSUrl url, UIControlState state, [NullAllowed] UIImage placeholder);
 
@@ -831,7 +829,7 @@ namespace SDWebImage
         // -(BOOL)isGIF;
         [Static]
         [Export("isGIF")]
-        bool IsGIF { get; }
+        bool IsGIF();
     }
 
     // @interface MultiFormat (UIImage)
@@ -848,7 +846,7 @@ namespace SDWebImage
         // -(NSData * _Nullable)sd_imageData;
         [Static]
         [NullAllowed, Export("sd_imageData")]
-        NSData ImageData { get; }
+        NSData ImageData();
 
         // -(NSData * _Nullable)sd_imageDataAsFormat:(SDImageFormat)imageFormat;
         [Export("sd_imageDataAsFormat:")]
@@ -929,7 +927,7 @@ namespace SDWebImage
     }
 
     // typedef void (^SDSetImageBlock)(UIImage * _Nullable, NSData * _Nullable);
-    delegate void SDSetImageBlock([NullAllowed] UIImage arg0, [NullAllowed] NSData arg1);
+    delegate void SDSetImageBlock([NullAllowed] UIImage image, [NullAllowed] NSData data);
 
     // @interface WebCache (UIView)
     [Category]
@@ -937,9 +935,8 @@ namespace SDWebImage
     interface UIView_WebCache
     {
         // -(NSURL * _Nullable)sd_imageURL;
-        [Static]
         [NullAllowed, Export("sd_imageURL")]
-        NSUrl ImageURL { get; }
+        NSUrl GetImage();
 
         // -(void)sd_internalSetImageWithURL:(NSURL * _Nullable)url placeholderImage:(UIImage * _Nullable)placeholder options:(SDWebImageOptions)options operationKey:(NSString * _Nullable)operationKey setImageBlock:(SDSetImageBlock _Nullable)setImageBlock progress:(SDWebImageDownloaderProgressBlock _Nullable)progressBlock completed:(SDExternalCompletionBlock _Nullable)completedBlock;
         [Export("sd_internalSetImageWithURL:placeholderImage:options:operationKey:setImageBlock:progress:completed:")]
@@ -950,7 +947,6 @@ namespace SDWebImage
         void CancelCurrentImageLoad();
 
         // -(void)sd_setShowActivityIndicatorView:(BOOL)show;
-        [Static]
         [Export("sd_setShowActivityIndicatorView:")]
         void ShowActivityIndicatorView(bool show);
 
@@ -959,9 +955,8 @@ namespace SDWebImage
         void SetIndicatorStyle(UIActivityIndicatorViewStyle style);
 
         // -(BOOL)sd_showActivityIndicatorView;
-        [Static]
         [Export("sd_showActivityIndicatorView")]
-        bool IsShowActivityIndicatorView { get; }
+        bool IsShowActivityIndicatorView();
 
         // -(void)sd_addActivityIndicator;
         [Export("sd_addActivityIndicator")]
