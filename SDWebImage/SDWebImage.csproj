@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="libSDWebImageUnified.linkwith.cs">
-      <DependentUpon>libSDWebImageUnified.a</DependentUpon>
+    <Compile Include="libsdwebimage.linkwith.cs">
+      <DependentUpon>libsdwebimage.a</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -58,10 +58,10 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libSDWebImageUnified.a" />
+    <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="packages.config" />
+    <ObjcBindingNativeLibrary Include="libsdwebimage.a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <Import Project="..\packages\NuGet.Build.Packaging.0.1.248\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.1.248\build\NuGet.Build.Packaging.targets')" />
